@@ -1,8 +1,11 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -222,6 +225,35 @@ namespace MegaDesk
                     Console.WriteLine("ORDER SUBMITTED:" + this.deskQuote.ToString());
                     DisplayQuote displayQuote = new DisplayQuote(deskQuote);
                     displayQuote.Show();
+                    try
+                    {
+
+
+
+                        var initialJson = File.ReadAllText("quotes.json");
+
+                        var array = JArray.Parse(initialJson);
+
+                        var itemToAdd = new JObject();
+                        itemToAdd["ID"] = this.deskQuote.Id;
+                        itemToAdd["Customer Name"] = this.deskQuote.CustomerName;
+                        itemToAdd["Desk Width"] = this.deskQuote.Desk.Width;
+                        itemToAdd["Desk Depth"] = this.deskQuote.Desk.Depth;
+                        itemToAdd["Drawers"] = this.deskQuote.Desk.DrawerCount;
+                        //itemToAdd["Surface Material"] =(this.deskQuote.Desk.Material);
+                        // itemToAdd["Rush Days"] = this.deskQuote.Shipping;
+                        itemToAdd["Total"] = this.deskQuote.QuotePrice;
+                        array.Add(itemToAdd);
+                        var jsonOrder = JsonConvert.SerializeObject(array, Formatting.Indented);
+                        File.WriteAllText(@"quotes.json", jsonOrder);
+                    }
+
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show(ex.Message, "Cannot ouput JSON");
+                    }
+
+
                     this.Close();
                 }
                 catch (Exception ex)
@@ -229,6 +261,8 @@ namespace MegaDesk
                     MessageBox.Show("Failed to update the desk configuration, will not save. See the application logs for details.", "Error", MessageBoxButtons.OK);
                     Console.WriteLine(ex);
                 }
+
+              
             }
             else
             {
