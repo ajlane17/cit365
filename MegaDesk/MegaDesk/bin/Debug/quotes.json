@@ -1,0 +1,20 @@
+
+{
+    Object:             DeskQuote
+    PricePerSquareInch: 1
+    PricePerDrawer:     50
+    BasePrice:          200
+    SurfacePriceFloor:  1000
+    MaterialCost:       100
+    Shipping:           [Normal - 14 Days, 0]
+    CustomerName:       Daniel Wear
+    Desk:               
+    {
+        Object:   Desk
+        Width:    27
+        Depth:    12
+        Drawers:  4
+        Material: Laminate
+    }
+    
+}

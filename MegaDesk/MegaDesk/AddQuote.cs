@@ -1,5 +1,4 @@
-﻿using Newtonsoft.Json;
-using Newtonsoft.Json.Linq;
+﻿
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -10,6 +9,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
+
+
+
+
+
+
 
 namespace MegaDesk
 {
@@ -224,27 +231,46 @@ namespace MegaDesk
                     MessageBox.Show("Quote Saved", "Success", MessageBoxButtons.OK);
                     Console.WriteLine("ORDER SUBMITTED:" + this.deskQuote.ToString());
                     DisplayQuote displayQuote = new DisplayQuote(deskQuote);
-                    displayQuote.Show();
+                    
+
+                    try
+                    {
+                        var record = this.deskQuote.ToString();
+
+                        //File parameters
+                        string outputFile = @"quotes.txt";
+                        if (!File.Exists(outputFile))
+                        {
+                            using (StreamWriter sw = File.CreateText("quotes.txt"))
+                            {
+                                sw.WriteLine("MegaDesk Desk Quotes");
+
+                            }
+                        }
+                        using (StreamWriter sw = File.AppendText("quotes.txt"))
+                        {
+                            sw.WriteLine(record);
+                        }
+                    }
+
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show(ex.Message, "Cannot ouput file");
+                    }
+
                     try
                     {
 
-
+                        var quote = this.deskQuote.ToString();
 
                         var initialJson = File.ReadAllText("quotes.json");
 
                         var array = JArray.Parse(initialJson);
 
                         var itemToAdd = new JObject();
-                        itemToAdd["ID"] = this.deskQuote.Id;
-                        itemToAdd["Customer Name"] = this.deskQuote.CustomerName;
-                        itemToAdd["Desk Width"] = this.deskQuote.Desk.Width;
-                        itemToAdd["Desk Depth"] = this.deskQuote.Desk.Depth;
-                        itemToAdd["Drawers"] = this.deskQuote.Desk.DrawerCount;
-                        //itemToAdd["Surface Material"] =(this.deskQuote.Desk.Material);
-                        // itemToAdd["Rush Days"] = this.deskQuote.Shipping;
-                        itemToAdd["Total"] = this.deskQuote.QuotePrice;
-                        array.Add(itemToAdd);
-                        var jsonOrder = JsonConvert.SerializeObject(array, Formatting.Indented);
+                  
+                        array.Add(quote);
+                        var jsonOrder = this.deskQuote.ToString();
                         File.WriteAllText(@"quotes.json", jsonOrder);
                     }
 
