@@ -65,6 +65,9 @@
     <Compile Include="DisplayQuote.Designer.cs">
       <DependentUpon>DisplayQuote.cs</DependentUpon>
     </Compile>
+    <Compile Include="FileContext.cs" />
+    <Compile Include="FileRepository.cs" />
+    <Compile Include="IRepository.cs" />
     <Compile Include="MainMenu.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -127,6 +130,9 @@
   <ItemGroup>
     <Content Include="images\carpentry.jpg" />
     <Content Include="images\logo.png" />
+    <Content Include="rushOrderPrices.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

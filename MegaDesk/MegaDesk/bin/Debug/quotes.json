@@ -1,20 +1,5 @@
-
-{
-    Object:             DeskQuote
-    PricePerSquareInch: 1
-    PricePerDrawer:     50
-    BasePrice:          200
-    SurfacePriceFloor:  1000
-    MaterialCost:       100
-    Shipping:           [Normal - 14 Days, 0]
-    CustomerName:       Daniel Wear
-    Desk:               
-    {
-        Object:   Desk
-        Width:    27
-        Depth:    12
-        Drawers:  4
-        Material: Laminate
-    }
-    
-}
+{"PricePerSquareInch":1.0,"PricePerDrawer":50.0,"BasePrice":200.0,"SurfacePriceFloor":1000.0,"MaterialCost":50.0,"Shipping":{"Key":"Normal - 14 Days","Value":0.0},"Id":0,"Desk":{"Material":2,"Width":24.0,"Depth":12.0,"DrawerCount":0,"SurfaceArea":288.0},"CustomerName":"Customer Name","DrawerCost":0.0,"SizeOverage":0.0,"SizeCost":0.0,"QuotePrice":250.0}
+{"PricePerSquareInch":1.0,"PricePerDrawer":50.0,"BasePrice":200.0,"SurfacePriceFloor":1000.0,"MaterialCost":300.0,"Shipping":{"Key":"Rush - 5 Days","Value":40.0},"Id":0,"Desk":{"Material":3,"Width":24.0,"Depth":12.0,"DrawerCount":3,"SurfaceArea":288.0},"CustomerName":"Customer Two","DrawerCost":150.0,"SizeOverage":0.0,"SizeCost":0.0,"QuotePrice":650.0}
+{"PricePerSquareInch":1.0,"PricePerDrawer":50.0,"BasePrice":200.0,"SurfacePriceFloor":1000.0,"MaterialCost":125.0,"Shipping":{"Key":"Rush - 3 Days","Value":80.0},"Id":0,"Desk":{"Material":4,"Width":48.0,"Depth":48.0,"DrawerCount":2,"SurfaceArea":2304.0},"CustomerName":"Customer Three","DrawerCost":100.0,"SizeOverage":1304.0,"SizeCost":1304.0,"QuotePrice":1729.0}
+{"PricePerSquareInch":1.0,"PricePerDrawer":50.0,"BasePrice":200.0,"SurfacePriceFloor":1000.0,"MaterialCost":50.0,"Shipping":{"Key":"Normal - 14 Days","Value":0.0},"Id":0,"Desk":{"Material":2,"Width":24.0,"Depth":12.0,"DrawerCount":0,"SurfaceArea":288.0},"CustomerName":"Customer Four","DrawerCost":0.0,"SizeOverage":0.0,"SizeCost":0.0,"QuotePrice":250.0}
+{"PricePerSquareInch":1.0,"PricePerDrawer":50.0,"BasePrice":200.0,"SurfacePriceFloor":1000.0,"MaterialCost":100.0,"Shipping":{"Key":"Rush - 5 Days","Value":40.0},"Id":0,"Desk":{"Material":1,"Width":24.0,"Depth":12.0,"DrawerCount":7,"SurfaceArea":288.0},"CustomerName":"Customer Five","DrawerCost":350.0,"SizeOverage":0.0,"SizeCost":0.0,"QuotePrice":650.0}

@@ -46,8 +46,13 @@ namespace MegaDesk
         private Dictionary<string, decimal[]> shippingRates;
         private Dictionary<string, decimal[]> numericUpDownBounds;
         private DeskQuote deskQuote;
+        private FileContext quotesFile;
+        private FileContext orderPrices;
+        FileRepository<DeskQuote> quoteRepository;
+        FileRepository<int> orderRepository;
+        List<int> priceList;
 
-        public AddQuote()
+        public AddQuote(ref FileContext quotesFile, ref FileContext orderPrices)
         {
             InitializeComponent();
 
@@ -59,12 +64,21 @@ namespace MegaDesk
             materialPrices.Add(DesktopMaterial.Rosewood, MATERIAL_PRICE_ROSEWOOD);
             materialPrices.Add(DesktopMaterial.Veneer,   MATERIAL_PRICE_VENEER);
 
+            // Initialize quotes file and repository
+            this.quotesFile = quotesFile;
+            quoteRepository = new FileRepository<DeskQuote>(quotesFile);
+
+
             // Initialize shipping rates
+            this.orderPrices = orderPrices;
+            orderRepository = new FileRepository<int>(orderPrices);
+            priceList =  (List<int>) orderRepository.GetAll();
+
             shippingRates = new Dictionary<string, decimal[]>();
             shippingRates.Add("Normal - 14 Days", new decimal[] { 0, 0, 0 });
-            shippingRates.Add("Rush - 7 Days",    new decimal[] { 30, 35, 40 });
-            shippingRates.Add("Rush - 5 Days",    new decimal[] { 40, 50, 60 });
-            shippingRates.Add("Rush - 3 Days",    new decimal[] { 60, 70, 80 });
+            shippingRates.Add("Rush - 7 Days",    new decimal[] { priceList[6], priceList[7], priceList[8] });
+            shippingRates.Add("Rush - 5 Days",    new decimal[] { priceList[3], priceList[4], priceList[5] });
+            shippingRates.Add("Rush - 3 Days",    new decimal[] { priceList[0], priceList[1], priceList[2] });
 
             // Initialize the collection of NumericUpDowns and MIN, MAX for validation
             numericUpDownBounds = new Dictionary<string, decimal[]>();
@@ -228,57 +242,13 @@ namespace MegaDesk
                 try 
                 {
                     updateDeskConfiguration();
+
+                    quoteRepository.Add(deskQuote);
+
                     MessageBox.Show("Quote Saved", "Success", MessageBoxButtons.OK);
                     Console.WriteLine("ORDER SUBMITTED:" + this.deskQuote.ToString());
                     DisplayQuote displayQuote = new DisplayQuote(deskQuote);
-                    
-
-                    try
-                    {
-                        var record = this.deskQuote.ToString();
-
-                        //File parameters
-                        string outputFile = @"quotes.txt";
-                        if (!File.Exists(outputFile))
-                        {
-                            using (StreamWriter sw = File.CreateText("quotes.txt"))
-                            {
-                                sw.WriteLine("MegaDesk Desk Quotes");
-
-                            }
-                        }
-                        using (StreamWriter sw = File.AppendText("quotes.txt"))
-                        {
-                            sw.WriteLine(record);
-                        }
-                    }
-
-                    catch (Exception ex)
-                    {
-                        MessageBox.Show(ex.Message, "Cannot ouput file");
-                    }
-
-                    try
-                    {
-
-                        var quote = this.deskQuote.ToString();
-
-                        var initialJson = File.ReadAllText("quotes.json");
-
-                        var array = JArray.Parse(initialJson);
-
-                        var itemToAdd = new JObject();
-                  
-                        array.Add(quote);
-                        var jsonOrder = this.deskQuote.ToString();
-                        File.WriteAllText(@"quotes.json", jsonOrder);
-                    }
-
-                    catch (Exception ex)
-                    {
-                        MessageBox.Show(ex.Message, "Cannot ouput JSON");
-                    }
-
+                    displayQuote.Show();
 
                     this.Close();
                 }
@@ -287,8 +257,6 @@ namespace MegaDesk
                     MessageBox.Show("Failed to update the desk configuration, will not save. See the application logs for details.", "Error", MessageBoxButtons.OK);
                     Console.WriteLine(ex);
                 }
-
-              
             }
             else
             {
