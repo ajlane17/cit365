@@ -1,12 +1,22 @@
-﻿using System;
+﻿
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
+
+
+
+
+
+
 
 namespace MegaDesk
 {
@@ -221,7 +231,55 @@ namespace MegaDesk
                     MessageBox.Show("Quote Saved", "Success", MessageBoxButtons.OK);
                     Console.WriteLine("ORDER SUBMITTED:" + this.deskQuote.ToString());
                     DisplayQuote displayQuote = new DisplayQuote(deskQuote);
-                    displayQuote.Show();
+                    
+
+                    try
+                    {
+                        var record = this.deskQuote.ToString();
+
+                        //File parameters
+                        string outputFile = @"quotes.txt";
+                        if (!File.Exists(outputFile))
+                        {
+                            using (StreamWriter sw = File.CreateText("quotes.txt"))
+                            {
+                                sw.WriteLine("MegaDesk Desk Quotes");
+
+                            }
+                        }
+                        using (StreamWriter sw = File.AppendText("quotes.txt"))
+                        {
+                            sw.WriteLine(record);
+                        }
+                    }
+
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show(ex.Message, "Cannot ouput file");
+                    }
+
+                    try
+                    {
+
+                        var quote = this.deskQuote.ToString();
+
+                        var initialJson = File.ReadAllText("quotes.json");
+
+                        var array = JArray.Parse(initialJson);
+
+                        var itemToAdd = new JObject();
+                  
+                        array.Add(quote);
+                        var jsonOrder = this.deskQuote.ToString();
+                        File.WriteAllText(@"quotes.json", jsonOrder);
+                    }
+
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show(ex.Message, "Cannot ouput JSON");
+                    }
+
+
                     this.Close();
                 }
                 catch (Exception ex)
@@ -229,6 +287,8 @@ namespace MegaDesk
                     MessageBox.Show("Failed to update the desk configuration, will not save. See the application logs for details.", "Error", MessageBoxButtons.OK);
                     Console.WriteLine(ex);
                 }
+
+              
             }
             else
             {
