@@ -31,20 +31,30 @@ namespace MegaDesk
         }
 
         //This is the "show all" version
-        public List<DeskQuote> getSearchResults()
+        public List<DeskQuoteView> getSearchResults()
         {
-            List<DeskQuote> quotes = new List<DeskQuote>(savedQuotesRepository.GetAll());
-
-            List<DeskQuote> searchResults = quotes;
-
+            List<DeskQuote> deskQuotes = new List<DeskQuote>(savedQuotesRepository.GetAll());
+            DeskQuoteView dqv;
+            List<DeskQuoteView> searchResults = new List<DeskQuoteView>();
+            foreach (DeskQuote dq in deskQuotes)
+            {
+                dqv = new DeskQuoteView(dq);
+                searchResults.Add(dqv);
+            }
             return searchResults;
         }
 
         // Called by event handler on dropdown to populate grid
-        public List<DeskQuote> getSearchResults(DesktopMaterial desktopMaterial)
+        public List<DeskQuoteView> getSearchResults(DesktopMaterial desktopMaterial)
         {
-            List<DeskQuote> quotes = new List<DeskQuote>(savedQuotesRepository.GetAll());
-            List<DeskQuote> searchResults = quotes;
+            List<DeskQuote> deskQuotes = new List<DeskQuote>(savedQuotesRepository.GetAll());
+            DeskQuoteView dqv;
+            List<DeskQuoteView> searchResults = new List<DeskQuoteView>();
+            foreach(DeskQuote dq in deskQuotes) {
+                dqv = new DeskQuoteView(dq);
+                searchResults.Add(dqv);
+            }
+
 
             // TODO: Logic to extrapolate subset of results based on enum passed
             // populate searchResults from search logic

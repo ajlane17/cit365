@@ -29,13 +29,6 @@
         private void InitializeComponent()
         {
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.Details = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.Customer = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.DeskSize = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Drawers = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Material = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Shipping = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TotalPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cmbMaterialSearch = new System.Windows.Forms.ComboBox();
             this.panel3 = new System.Windows.Forms.Panel();
             this.label7 = new System.Windows.Forms.Label();
@@ -46,9 +39,9 @@
             this.btnSearchDeskMaterial = new System.Windows.Forms.Button();
             this.radioSearchMaterial = new System.Windows.Forms.RadioButton();
             this.txtSearchCustomer = new System.Windows.Forms.TextBox();
+            this.btnSearchCustomer = new System.Windows.Forms.Button();
             this.radioShowByCustomer = new System.Windows.Forms.RadioButton();
             this.radioShowAll = new System.Windows.Forms.RadioButton();
-            this.btnSearchCustomer = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.panel3.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -59,61 +52,11 @@
             this.dataGridView1.AllowUserToAddRows = false;
             this.dataGridView1.AllowUserToDeleteRows = false;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Details,
-            this.Customer,
-            this.DeskSize,
-            this.Drawers,
-            this.Material,
-            this.Shipping,
-            this.TotalPrice});
             this.dataGridView1.Location = new System.Drawing.Point(12, 138);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.Size = new System.Drawing.Size(760, 411);
             this.dataGridView1.TabIndex = 0;
-            // 
-            // Details
-            // 
-            this.Details.HeaderText = "Details";
-            this.Details.Name = "Details";
-            this.Details.ReadOnly = true;
-            // 
-            // Customer
-            // 
-            this.Customer.HeaderText = "Customer";
-            this.Customer.Name = "Customer";
-            this.Customer.ReadOnly = true;
-            // 
-            // DeskSize
-            // 
-            this.DeskSize.HeaderText = "Size";
-            this.DeskSize.Name = "DeskSize";
-            this.DeskSize.ReadOnly = true;
-            // 
-            // Drawers
-            // 
-            this.Drawers.HeaderText = "Drawers";
-            this.Drawers.Name = "Drawers";
-            this.Drawers.ReadOnly = true;
-            // 
-            // Material
-            // 
-            this.Material.HeaderText = "Material";
-            this.Material.Name = "Material";
-            this.Material.ReadOnly = true;
-            // 
-            // Shipping
-            // 
-            this.Shipping.HeaderText = "Shipping";
-            this.Shipping.Name = "Shipping";
-            this.Shipping.ReadOnly = true;
-            // 
-            // TotalPrice
-            // 
-            this.TotalPrice.HeaderText = "Total Price";
-            this.TotalPrice.Name = "TotalPrice";
-            this.TotalPrice.ReadOnly = true;
             // 
             // cmbMaterialSearch
             // 
@@ -126,7 +69,6 @@
             this.cmbMaterialSearch.Name = "cmbMaterialSearch";
             this.cmbMaterialSearch.Size = new System.Drawing.Size(121, 28);
             this.cmbMaterialSearch.TabIndex = 1;
-            this.cmbMaterialSearch.UseWaitCursor = true;
             this.cmbMaterialSearch.SelectedIndexChanged += new System.EventHandler(this.cmbMaterialSearch_SelectedIndexChanged);
             // 
             // panel3
@@ -221,6 +163,16 @@
             this.txtSearchCustomer.TabIndex = 4;
             this.txtSearchCustomer.Visible = false;
             // 
+            // btnSearchCustomer
+            // 
+            this.btnSearchCustomer.Location = new System.Drawing.Point(272, 41);
+            this.btnSearchCustomer.Name = "btnSearchCustomer";
+            this.btnSearchCustomer.Size = new System.Drawing.Size(20, 22);
+            this.btnSearchCustomer.TabIndex = 6;
+            this.btnSearchCustomer.Text = ">>";
+            this.btnSearchCustomer.UseVisualStyleBackColor = true;
+            this.btnSearchCustomer.Visible = false;
+            // 
             // radioShowByCustomer
             // 
             this.radioShowByCustomer.AutoSize = true;
@@ -242,16 +194,6 @@
             this.radioShowAll.TabStop = true;
             this.radioShowAll.Text = "Show All";
             this.radioShowAll.UseVisualStyleBackColor = true;
-            // 
-            // btnSearchCustomer
-            // 
-            this.btnSearchCustomer.Location = new System.Drawing.Point(272, 41);
-            this.btnSearchCustomer.Name = "btnSearchCustomer";
-            this.btnSearchCustomer.Size = new System.Drawing.Size(20, 22);
-            this.btnSearchCustomer.TabIndex = 6;
-            this.btnSearchCustomer.Text = ">>";
-            this.btnSearchCustomer.UseVisualStyleBackColor = true;
-            this.btnSearchCustomer.Visible = false;
             // 
             // SearchQuotes
             // 
@@ -276,13 +218,6 @@
 
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.ComboBox cmbMaterialSearch;
-        private System.Windows.Forms.DataGridViewButtonColumn Details;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Customer;
-        private System.Windows.Forms.DataGridViewTextBoxColumn DeskSize;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Drawers;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Material;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Shipping;
-        private System.Windows.Forms.DataGridViewTextBoxColumn TotalPrice;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.RadioButton radioByAmount;
