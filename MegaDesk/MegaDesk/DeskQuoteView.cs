@@ -20,6 +20,8 @@ namespace MegaDesk
 
         public int DrawerCount { get; set; }
 
+        public string Material { get; set; }
+
         public string ShippingMethod { get; set; }
 
         public string QuotePrice { get; set; }
@@ -31,8 +33,9 @@ namespace MegaDesk
                 this.CustomerName = dq.CustomerName;
                 this.Dimensions = String.Format("{0:0.}W by {1:0.}D", dq.Desk.Width, dq.Desk.Depth);
                 this.DrawerCount = dq.Desk.DrawerCount;
+                this.Material = dq.Desk.Material.ToString();
                 this.ShippingMethod = dq.Shipping.Key;
-                this.QuotePrice = String.Format("${0:0.00}",dq.QuotePrice);
+                this.QuotePrice = String.Format("${0,10:0.00}", dq.QuotePrice);
             }
             catch (Exception ex)
             {
