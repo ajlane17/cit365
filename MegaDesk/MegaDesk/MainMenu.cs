@@ -13,13 +13,22 @@ namespace MegaDesk
 {
     public partial class MainMenu : Form
     {
+        private const string QUOTE_FILE = @"quotes.json";
+        private const string SHIPPING_COSTS_FILE = @"rushOrderPrices.txt";
+
         private AddQuote addQuoteForm;
         private ViewAllQuotes viewAllQuotesForm;
         private SearchQuotes searchQuotesForm;
 
+        private FileContext savedQuotesFile;
+        private FileContext shippingCostsFile;
+
         public MainMenu()
         {
             InitializeComponent();
+
+            savedQuotesFile = new FileContext(QUOTE_FILE);
+            shippingCostsFile = new FileContext(SHIPPING_COSTS_FILE);
         }
 
         private void addNewQuote_Click(object sender, EventArgs e)
@@ -34,7 +43,7 @@ namespace MegaDesk
             else
             {
                 // If form does not exist, create it
-                addQuoteForm = new AddQuote();
+                addQuoteForm = new AddQuote(ref savedQuotesFile, ref shippingCostsFile);
                 addQuoteForm.Show();
             }
         }
@@ -51,7 +60,7 @@ namespace MegaDesk
             else
             {
                 // If form does not exist, create it
-                searchQuotesForm = new SearchQuotes();
+                searchQuotesForm = new SearchQuotes(ref savedQuotesFile);
                 searchQuotesForm.Show();
             }
         }
