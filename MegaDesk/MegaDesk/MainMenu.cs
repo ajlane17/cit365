@@ -60,7 +60,7 @@ namespace MegaDesk
             else
             {
                 // If form does not exist, create it
-                searchQuotesForm = new SearchQuotes();
+                searchQuotesForm = new SearchQuotes(ref savedQuotesFile);
                 searchQuotesForm.Show();
             }
         }
