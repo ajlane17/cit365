@@ -29,6 +29,9 @@ namespace MegaDesk
         {
             // Call getSearchResults to populate DataGridView
             dataGridView1.DataSource = getSearchResults();
+
+            // Hide embedded DeskQuote object reference
+            dataGridView1.Columns["Quote"].Visible = false;
         }
 
         public void showResults(DesktopMaterial dm)
@@ -171,9 +174,12 @@ namespace MegaDesk
             }
         }
 
-        private void label7_Click(object sender, EventArgs e)
+        private void dataGridView1_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
+            DeskQuoteView currentViewItem = (DeskQuoteView) this.dataGridView1.CurrentRow.DataBoundItem;
+            DisplayQuote displayQuoteForm = new DisplayQuote(currentViewItem.Quote);
 
+            displayQuoteForm.Show();
         }
     }
 }
