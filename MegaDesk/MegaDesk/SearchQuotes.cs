@@ -181,6 +181,12 @@ namespace MegaDesk
 
             displayQuoteForm.Show();
         }
+
+        private void txtSearchCustomer_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
     }
 }
     

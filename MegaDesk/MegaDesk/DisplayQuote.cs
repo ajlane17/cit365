@@ -26,6 +26,8 @@ namespace MegaDesk
 
         private void updateQuoteDisplay()
         {
+
+            customerNameLabel.Text = (deskQuote.CustomerName).ToString();
             totalSizeLabel.Text = (deskQuote.Desk.SurfaceArea).ToString();
             basePriceLabel.Text = formatToCurrency(deskQuote.BasePrice);
             baseSizeLabel.Text = deskQuote.SurfacePriceFloor.ToString();
