@@ -26,8 +26,13 @@ namespace MegaDesk
 
         public string QuotePrice { get; set; }
 
+        public DeskQuote Quote { get; set; }
+
         public DeskQuoteView(DeskQuote dq)
         {
+
+            this.Quote = dq;
+
             try
             {
                 this.CustomerName = dq.CustomerName;
