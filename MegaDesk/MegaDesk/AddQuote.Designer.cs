@@ -184,6 +184,7 @@
             this.customerName.Name = "customerName";
             this.customerName.Size = new System.Drawing.Size(251, 26);
             this.customerName.TabIndex = 2;
+            this.customerName.TextChanged += new System.EventHandler(this.customerName_TextChanged);
             this.customerName.Validating += new System.ComponentModel.CancelEventHandler(this.textBox_Validating);
             // 
             // groupBox2
@@ -316,7 +317,7 @@
             // 
             // basePriceLabel
             // 
-            this.basePriceLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.basePriceLabel.ForeColor = System.Drawing.Color.DarkOliveGreen;
             this.basePriceLabel.Location = new System.Drawing.Point(218, 42);
             this.basePriceLabel.Name = "basePriceLabel";
             this.basePriceLabel.Size = new System.Drawing.Size(105, 20);
@@ -356,7 +357,7 @@
             // 
             // drawerCostLabel
             // 
-            this.drawerCostLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.drawerCostLabel.ForeColor = System.Drawing.Color.DarkOliveGreen;
             this.drawerCostLabel.Location = new System.Drawing.Point(218, 306);
             this.drawerCostLabel.Name = "drawerCostLabel";
             this.drawerCostLabel.Size = new System.Drawing.Size(105, 20);
@@ -386,7 +387,7 @@
             // 
             // pricePerDrawerLabel
             // 
-            this.pricePerDrawerLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.pricePerDrawerLabel.ForeColor = System.Drawing.Color.DarkOliveGreen;
             this.pricePerDrawerLabel.Location = new System.Drawing.Point(218, 262);
             this.pricePerDrawerLabel.Name = "pricePerDrawerLabel";
             this.pricePerDrawerLabel.Size = new System.Drawing.Size(105, 20);
@@ -456,7 +457,7 @@
             // 
             // totalCostLabel
             // 
-            this.totalCostLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.totalCostLabel.ForeColor = System.Drawing.Color.DarkOliveGreen;
             this.totalCostLabel.Location = new System.Drawing.Point(218, 438);
             this.totalCostLabel.Name = "totalCostLabel";
             this.totalCostLabel.Size = new System.Drawing.Size(105, 20);
@@ -465,7 +466,7 @@
             // 
             // shippingCostLabel
             // 
-            this.shippingCostLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.shippingCostLabel.ForeColor = System.Drawing.Color.DarkOliveGreen;
             this.shippingCostLabel.Location = new System.Drawing.Point(218, 394);
             this.shippingCostLabel.Name = "shippingCostLabel";
             this.shippingCostLabel.Size = new System.Drawing.Size(105, 20);
@@ -474,7 +475,7 @@
             // 
             // materialCostLabel
             // 
-            this.materialCostLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.materialCostLabel.ForeColor = System.Drawing.Color.DarkOliveGreen;
             this.materialCostLabel.Location = new System.Drawing.Point(218, 350);
             this.materialCostLabel.Name = "materialCostLabel";
             this.materialCostLabel.Size = new System.Drawing.Size(105, 20);
@@ -483,7 +484,7 @@
             // 
             // sizeCostLabel
             // 
-            this.sizeCostLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.sizeCostLabel.ForeColor = System.Drawing.Color.DarkOliveGreen;
             this.sizeCostLabel.Location = new System.Drawing.Point(218, 218);
             this.sizeCostLabel.Name = "sizeCostLabel";
             this.sizeCostLabel.Size = new System.Drawing.Size(105, 20);
@@ -492,7 +493,7 @@
             // 
             // costPerInchLabel
             // 
-            this.costPerInchLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.costPerInchLabel.ForeColor = System.Drawing.Color.DarkOliveGreen;
             this.costPerInchLabel.Location = new System.Drawing.Point(218, 130);
             this.costPerInchLabel.Name = "costPerInchLabel";
             this.costPerInchLabel.Size = new System.Drawing.Size(105, 20);
@@ -501,7 +502,7 @@
             // 
             // sizeOverageLabel
             // 
-            this.sizeOverageLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.sizeOverageLabel.ForeColor = System.Drawing.Color.DarkOliveGreen;
             this.sizeOverageLabel.Location = new System.Drawing.Point(218, 174);
             this.sizeOverageLabel.Name = "sizeOverageLabel";
             this.sizeOverageLabel.Size = new System.Drawing.Size(105, 20);
@@ -510,7 +511,7 @@
             // 
             // baseSizeLabel
             // 
-            this.baseSizeLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.baseSizeLabel.ForeColor = System.Drawing.Color.DarkOliveGreen;
             this.baseSizeLabel.Location = new System.Drawing.Point(218, 86);
             this.baseSizeLabel.Name = "baseSizeLabel";
             this.baseSizeLabel.Size = new System.Drawing.Size(105, 20);
@@ -596,6 +597,12 @@
             // 
             // cancelButton
             // 
+            this.cancelButton.FlatAppearance.BorderColor = System.Drawing.Color.DarkOliveGreen;
+            this.cancelButton.FlatAppearance.BorderSize = 2;
+            this.cancelButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.DarkSeaGreen;
+            this.cancelButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Honeydew;
+            this.cancelButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cancelButton.ForeColor = System.Drawing.Color.DarkOliveGreen;
             this.cancelButton.Location = new System.Drawing.Point(527, 509);
             this.cancelButton.Name = "cancelButton";
             this.cancelButton.Size = new System.Drawing.Size(114, 40);
@@ -606,6 +613,12 @@
             // 
             // Save
             // 
+            this.Save.FlatAppearance.BorderColor = System.Drawing.Color.DarkOliveGreen;
+            this.Save.FlatAppearance.BorderSize = 2;
+            this.Save.FlatAppearance.MouseDownBackColor = System.Drawing.Color.DarkSeaGreen;
+            this.Save.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Honeydew;
+            this.Save.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Save.ForeColor = System.Drawing.Color.DarkOliveGreen;
             this.Save.Location = new System.Drawing.Point(658, 509);
             this.Save.Name = "Save";
             this.Save.Size = new System.Drawing.Size(114, 40);
@@ -632,7 +645,7 @@
             this.Controls.Add(this.customerName);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.label1);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Name = "AddQuote";
             this.Text = "Add Quote";
             this.groupBox1.ResumeLayout(false);

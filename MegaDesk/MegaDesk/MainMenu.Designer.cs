@@ -42,7 +42,8 @@
             this.addNewQuote.Cursor = System.Windows.Forms.Cursors.Hand;
             this.addNewQuote.FlatAppearance.BorderColor = System.Drawing.Color.DarkOliveGreen;
             this.addNewQuote.FlatAppearance.BorderSize = 2;
-            this.addNewQuote.FlatAppearance.MouseOverBackColor = System.Drawing.Color.DarkSeaGreen;
+            this.addNewQuote.FlatAppearance.MouseDownBackColor = System.Drawing.Color.DarkSeaGreen;
+            this.addNewQuote.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Honeydew;
             this.addNewQuote.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.addNewQuote.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.addNewQuote.ForeColor = System.Drawing.Color.DarkOliveGreen;
@@ -59,7 +60,8 @@
             this.searchQuotes.Cursor = System.Windows.Forms.Cursors.Hand;
             this.searchQuotes.FlatAppearance.BorderColor = System.Drawing.Color.DarkOliveGreen;
             this.searchQuotes.FlatAppearance.BorderSize = 2;
-            this.searchQuotes.FlatAppearance.MouseOverBackColor = System.Drawing.Color.DarkSeaGreen;
+            this.searchQuotes.FlatAppearance.MouseDownBackColor = System.Drawing.Color.DarkSeaGreen;
+            this.searchQuotes.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Honeydew;
             this.searchQuotes.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.searchQuotes.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.searchQuotes.ForeColor = System.Drawing.Color.DarkOliveGreen;
@@ -76,7 +78,8 @@
             this.exit.Cursor = System.Windows.Forms.Cursors.Hand;
             this.exit.FlatAppearance.BorderColor = System.Drawing.Color.DarkOliveGreen;
             this.exit.FlatAppearance.BorderSize = 2;
-            this.exit.FlatAppearance.MouseOverBackColor = System.Drawing.Color.DarkSeaGreen;
+            this.exit.FlatAppearance.MouseDownBackColor = System.Drawing.Color.DarkSeaGreen;
+            this.exit.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Honeydew;
             this.exit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.exit.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.exit.ForeColor = System.Drawing.Color.DarkOliveGreen;
@@ -103,9 +106,9 @@
             // pictureBox1
             // 
             this.pictureBox1.Image = global::MegaDesk.Properties.Resources.logo;
-            this.pictureBox1.Location = new System.Drawing.Point(-1, -2);
+            this.pictureBox1.Location = new System.Drawing.Point(0, 12);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(785, 126);
+            this.pictureBox1.Size = new System.Drawing.Size(785, 123);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 4;
             this.pictureBox1.TabStop = false;

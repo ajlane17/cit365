@@ -329,5 +329,10 @@ namespace MegaDesk
         {
 
         }
+
+        private void customerName_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
