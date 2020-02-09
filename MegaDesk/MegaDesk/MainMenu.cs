@@ -17,7 +17,6 @@ namespace MegaDesk
         private const string SHIPPING_COSTS_FILE = @"rushOrderPrices.txt";
 
         private AddQuote addQuoteForm;
-        private ViewAllQuotes viewAllQuotesForm;
         private SearchQuotes searchQuotesForm;
 
         private FileContext savedQuotesFile;
@@ -66,31 +65,9 @@ namespace MegaDesk
             }
         }
 
-        private void viewQuotes_Click(object sender, EventArgs e)
-        {
-            if ((Application.OpenForms["ViewAllQuotes"] as ViewAllQuotes) != null)
-            {
-                // If form exists, bring to front
-                viewAllQuotesForm = Application.OpenForms.OfType<ViewAllQuotes>().LastOrDefault();
-                viewAllQuotesForm.WindowState = FormWindowState.Normal;
-                viewAllQuotesForm.Focus();
-            }
-            else
-            {
-                // If form does not exist, create it
-                viewAllQuotesForm = new ViewAllQuotes();
-                viewAllQuotesForm.Show();
-            }
-        }
-
         private void exit_Click(object sender, EventArgs e)
         {
             Application.Exit();
-        }
-
-        private void pictureBox2_Click(object sender, EventArgs e)
-        {
-
         }
     }
 }
