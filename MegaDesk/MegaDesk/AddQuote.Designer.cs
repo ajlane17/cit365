@@ -113,7 +113,6 @@
             this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Size";
-            this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
             // 
             // totalSizeLabel
             // 
@@ -141,7 +140,7 @@
             this.deskDepth.Location = new System.Drawing.Point(167, 70);
             this.deskDepth.Name = "deskDepth";
             this.deskDepth.Size = new System.Drawing.Size(166, 26);
-            this.deskDepth.TabIndex = 6;
+            this.deskDepth.TabIndex = 3;
             this.deskDepth.ValueChanged += new System.EventHandler(this.quoteFormField_ValueChanged);
             this.deskDepth.Validating += new System.ComponentModel.CancelEventHandler(this.numericUpDown_Validating);
             // 
@@ -151,7 +150,7 @@
             this.deskWidth.Location = new System.Drawing.Point(167, 22);
             this.deskWidth.Name = "deskWidth";
             this.deskWidth.Size = new System.Drawing.Size(166, 26);
-            this.deskWidth.TabIndex = 5;
+            this.deskWidth.TabIndex = 2;
             this.deskWidth.ValueChanged += new System.EventHandler(this.quoteFormField_ValueChanged);
             this.deskWidth.Validating += new System.ComponentModel.CancelEventHandler(this.numericUpDown_Validating);
             // 
@@ -183,8 +182,7 @@
             this.customerName.Location = new System.Drawing.Point(134, 23);
             this.customerName.Name = "customerName";
             this.customerName.Size = new System.Drawing.Size(251, 26);
-            this.customerName.TabIndex = 2;
-            this.customerName.TextChanged += new System.EventHandler(this.customerName_TextChanged);
+            this.customerName.TabIndex = 1;
             this.customerName.Validating += new System.ComponentModel.CancelEventHandler(this.textBox_Validating);
             // 
             // groupBox2
@@ -197,7 +195,7 @@
             this.groupBox2.Location = new System.Drawing.Point(17, 246);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(369, 136);
-            this.groupBox2.TabIndex = 7;
+            this.groupBox2.TabIndex = 4;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Configuration";
             // 
@@ -251,7 +249,7 @@
             this.groupBox3.Location = new System.Drawing.Point(17, 414);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Size = new System.Drawing.Size(369, 89);
-            this.groupBox3.TabIndex = 8;
+            this.groupBox3.TabIndex = 7;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Shipping";
             // 
@@ -262,7 +260,7 @@
             this.shippingMethod.Location = new System.Drawing.Point(167, 32);
             this.shippingMethod.Name = "shippingMethod";
             this.shippingMethod.Size = new System.Drawing.Size(166, 28);
-            this.shippingMethod.TabIndex = 7;
+            this.shippingMethod.TabIndex = 8;
             this.shippingMethod.SelectedIndexChanged += new System.EventHandler(this.quoteFormField_ValueChanged);
             // 
             // label7
@@ -313,7 +311,6 @@
             this.groupBox4.TabIndex = 9;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Quote";
-            this.groupBox4.Enter += new System.EventHandler(this.groupBox4_Enter);
             // 
             // basePriceLabel
             // 
@@ -606,7 +603,7 @@
             this.cancelButton.Location = new System.Drawing.Point(527, 509);
             this.cancelButton.Name = "cancelButton";
             this.cancelButton.Size = new System.Drawing.Size(114, 40);
-            this.cancelButton.TabIndex = 10;
+            this.cancelButton.TabIndex = 9;
             this.cancelButton.Text = "Cancel";
             this.cancelButton.UseVisualStyleBackColor = true;
             this.cancelButton.Click += new System.EventHandler(this.cancelButton_Click);
@@ -622,7 +619,7 @@
             this.Save.Location = new System.Drawing.Point(658, 509);
             this.Save.Name = "Save";
             this.Save.Size = new System.Drawing.Size(114, 40);
-            this.Save.TabIndex = 11;
+            this.Save.TabIndex = 10;
             this.Save.Text = "Save";
             this.Save.UseVisualStyleBackColor = true;
             this.Save.Click += new System.EventHandler(this.Save_Click);

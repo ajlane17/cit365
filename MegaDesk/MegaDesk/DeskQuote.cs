@@ -20,8 +20,6 @@ namespace MegaDesk
         public Desk Desk { get; set; }
         public string CustomerName { get; set; }
 
-        
-
         public DeskQuote(decimal pricePerSquareInch, decimal pricePerDrawer, decimal basePrice, decimal surfacePriceFloor)
         {
             this.PricePerSquareInch = pricePerSquareInch;

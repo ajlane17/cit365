@@ -13,11 +13,6 @@ using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 
 
-
-
-
-
-
 namespace MegaDesk
 {
     public partial class AddQuote : Form
@@ -56,7 +51,7 @@ namespace MegaDesk
         {
             InitializeComponent();
 
-            // Initialize collection of materials and prices
+            // Initialize collection of materials and prices using the DesktopMaterial enum
             materialPrices = new Dictionary<DesktopMaterial, decimal>();
             materialPrices.Add(DesktopMaterial.Laminate, MATERIAL_PRICE_LAMINATE);
             materialPrices.Add(DesktopMaterial.Oak,      MATERIAL_PRICE_OAK);
@@ -68,12 +63,12 @@ namespace MegaDesk
             this.quotesFile = quotesFile;
             quoteRepository = new FileRepository<DeskQuote>(quotesFile);
 
-
             // Initialize shipping rates
             this.orderPrices = orderPrices;
             orderRepository = new FileRepository<int>(orderPrices);
             priceList =  (List<int>) orderRepository.GetAll();
 
+            //Populate the shippingRates dictionary with the values loaded from the text file.
             shippingRates = new Dictionary<string, decimal[]>();
             shippingRates.Add("Normal - 14 Days", new decimal[] { 0, 0, 0 });
             shippingRates.Add("Rush - 7 Days",    new decimal[] { priceList[6], priceList[7], priceList[8] });
@@ -86,6 +81,7 @@ namespace MegaDesk
             numericUpDownBounds.Add(deskDepth.Name, new decimal[] { Desk.DEPTH_MIN, Desk.DEPTH_MAX });
             numericUpDownBounds.Add(deskDrawerCount.Name, new decimal[] { Desk.DRAWER_MIN, Desk.DRAWER_MAX });
 
+            //Initialize the DeskQuote object with basic pricing information. 
             deskQuote = new DeskQuote(PRICE_PER_SQUARE_INCH, PRICE_PER_DRAWER, BASE_PRICE, SURFACE_PRICING_FLOOR);
 
             Console.WriteLine(deskQuote.ToString());
@@ -130,18 +126,19 @@ namespace MegaDesk
             return materialChoice;
         }
 
-        // Gets the shipping selection from the drop-down and returns a key value pair of method and cost
+        // Gets the shipping selection from the drop-down and returns a key value pair of method and cost.
+        // The DeskQuote class has a property for shipping which holds this KeyValuePair.
         private KeyValuePair<string, decimal> getShippingDetails()
         {
             KeyValuePair<string, decimal> shippingDetails;
             string selection;
             decimal cost;
             decimal deskSurfaceArea;
-            
-            selection = this.shippingMethod.GetItemText(this.shippingMethod.SelectedItem);
 
+            selection = this.shippingMethod.GetItemText(this.shippingMethod.SelectedItem);
             deskSurfaceArea = deskWidth.Value * deskDepth.Value;
 
+            //Calculate shipping cost based on the selected rush method and size range
             if (deskSurfaceArea < SHIPPING_TIER_2_FLOOR)
                 cost = shippingRates[selection][0];
             else if (deskSurfaceArea < SHIPPING_TIER_3_FLOOR)
@@ -150,7 +147,6 @@ namespace MegaDesk
                 cost = shippingRates[selection][2];
 
             shippingDetails = new KeyValuePair<string, decimal>(selection, cost);
-
             return shippingDetails;
         }
 
@@ -180,21 +176,18 @@ namespace MegaDesk
 
             sizeQuote = deskWidth.Value * deskDepth.Value;
 
+            //calculate local variables
             if (sizeQuote <= SURFACE_PRICING_FLOOR)
                 sizeOverageQuote = 0;
             else
                 sizeOverageQuote = sizeQuote - SURFACE_PRICING_FLOOR;
-
             sizeCostQuote = sizeOverageQuote * PRICE_PER_SQUARE_INCH;
-
             drawerCostQuote = deskDrawerCount.Value * PRICE_PER_DRAWER;
-
             materialCostQuote = materialPrices[getMaterialChoice()];
-
             shippingCostQuote = getShippingDetails().Value;
-
             totalCostQuote = BASE_PRICE + sizeCostQuote + drawerCostQuote + materialCostQuote + shippingCostQuote;
 
+            //Update UI fields with values
             totalSizeLabel.Text = (deskWidth.Value * deskDepth.Value).ToString();
             basePriceLabel.Text = formatToCurrency(BASE_PRICE);
             baseSizeLabel.Text = SURFACE_PRICING_FLOOR.ToString();
@@ -318,21 +311,6 @@ namespace MegaDesk
                     errorProvider.SetError(textBox, null);
                 }
             }
-        }
-
-        private void groupBox4_Enter(object sender, EventArgs e)
-        {
-
-        }
-
-        private void groupBox1_Enter(object sender, EventArgs e)
-        {
-
-        }
-
-        private void customerName_TextChanged(object sender, EventArgs e)
-        {
-
         }
     }
 }

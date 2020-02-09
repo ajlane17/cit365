@@ -12,7 +12,6 @@ namespace MegaDesk
 {
     public partial class DisplayQuote : Form
     {
-
         private DeskQuote deskQuote { get; set; }
 
         public DisplayQuote(DeskQuote quote)
@@ -20,13 +19,12 @@ namespace MegaDesk
             InitializeComponent();
 
             deskQuote = quote;
-
             updateQuoteDisplay();
         }
 
         private void updateQuoteDisplay()
         {
-
+            //Assign deskQuote instance values to the form fields.  
             customerNameLabel.Text = (deskQuote.CustomerName).ToString();
             totalSizeLabel.Text = (deskQuote.Desk.SurfaceArea).ToString();
             basePriceLabel.Text = formatToCurrency(deskQuote.BasePrice);
