@@ -1,0 +1,72 @@
+﻿@page
+@model MyScriptureJournal.IndexModel
+
+@{
+    ViewData["Title"] = "Scritpures";
+}
+
+<h1>Scriptures</h1>
+
+<p>
+    <a asp-page="Create">Create New</a>
+</p>
+
+<form>
+    <p>
+        <select asp-for="BookName" asp-items="Model.Books">
+            <option value="">All</option>
+        </select>
+        Keyword: <input type="text" asp-for="SearchString" />
+        <input type="submit" value="Filter" />
+    </p>
+</form>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                <a asp-page="./Index" asp-route-sortOrder="@Model.BookSort">
+                   Scripture
+                </a>
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ScriptureRecords[0].Comments)
+            </th>
+            <th>
+                <a asp-page="./Index" asp-route-sortOrder="@Model.CreatedSort">
+                    @Html.DisplayNameFor(model => model.ScriptureRecords[0].CreatedDate)
+                </a>
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ScriptureRecords[0].ModifiedDate)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.ScriptureRecords) {
+        <tr>
+            <td nowrap="nowrap">
+                @{
+                    var scripture = item.Book + " " + item.Chapter + ":" + item.Verse;
+                    @Html.DisplayFor(modelItem => scripture)
+                }
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Comments)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CreatedDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ModifiedDate)
+            </td>
+            <td nowrap="nowrap">
+                <a asp-page="./Edit" asp-route-id="@item.ID">Edit</a> |
+                <a asp-page="./Details" asp-route-id="@item.ID">Details</a> |
+                <a asp-page="./Delete" asp-route-id="@item.ID">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
