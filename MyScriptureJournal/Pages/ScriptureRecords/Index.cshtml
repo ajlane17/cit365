@@ -12,16 +12,16 @@
 </p>
 
 <form>
-    <p>
-        <select asp-for="BookName" asp-items="Model.Books">
+    <div class="input-group mb-3">
+        <select asp-for="BookName" asp-items="Model.Books" class="selectpicker">
             <option value="">All</option>
         </select>
-        Keyword: <input type="text" asp-for="SearchString" />
-        <input type="submit" value="Filter" />
-    </p>
+        <input type="text" asp-for="SearchString" class="form-control" placeholder="Text Search" />
+        <input type="submit" value="Filter" class="btn-primary" />
+    </div>
 </form>
 
-<table class="table">
+<table class="table table-sm table-responsive-sm table-bordered table-custom">
     <thead>
         <tr>
             <th>
@@ -46,13 +46,13 @@
     <tbody>
 @foreach (var item in Model.ScriptureRecords) {
         <tr>
-            <td nowrap="nowrap">
+            <td class="text-nowrap">
                 @{
                     var scripture = item.Book + " " + item.Chapter + ":" + item.Verse;
                     @Html.DisplayFor(modelItem => scripture)
                 }
             </td>
-            <td>
+            <td class="text-truncate" style="max-width: 500px;">
                 @Html.DisplayFor(modelItem => item.Comments)
             </td>
             <td>
@@ -61,7 +61,7 @@
             <td>
                 @Html.DisplayFor(modelItem => item.ModifiedDate)
             </td>
-            <td nowrap="nowrap">
+            <td class="text-nowrap">
                 <a asp-page="./Edit" asp-route-id="@item.ID">Edit</a> |
                 <a asp-page="./Details" asp-route-id="@item.ID">Details</a> |
                 <a asp-page="./Delete" asp-route-id="@item.ID">Delete</a>

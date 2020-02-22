@@ -1,6 +1,30 @@
 ﻿/* Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification
 for details on configuring this project to bundle and minify static web assets. */
 
+@import url('https://fonts.googleapis.com/css?family=Inconsolata%7CMontserrat&display=swap');
+
+body {
+    font-family: 'Montserrat', 'san-serif';
+    background-color: #499371;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Inconsolata', 'monospace';
+    color: white;
+}
+
+.footer-custom {
+    color: white;
+}
+
+.navbar-custom {
+    background-color: #0F5837;
+}
+
+.table-custom {
+    background-color: white;
+}
+
 a.navbar-brand {
   white-space: normal;
   text-align: center;
@@ -9,7 +33,7 @@ a.navbar-brand {
 
 /* Provide sufficient contrast against white background */
 a {
-  color: #0366d6;
+    color: #123752;
 }
 
 .btn-primary {
