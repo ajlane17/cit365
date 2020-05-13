@@ -1,0 +1,34 @@
+﻿@page
+@model CIT365_SacramentProgram.Pages.Speakers.DeleteModel
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>Speaker</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Speaker.FullName)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Speaker.FullName)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Speaker.Topic)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Speaker.Topic)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Speaker.Type)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Speaker.Type)
+        </dd>
+    </dl>
+    
+    <form method="post">
+        <input type="hidden" asp-for="Speaker.SpeakerId" />
+        <input type="submit" value="Delete" class="btn btn-danger" /> |
+        <a asp-page="/Meetings/Details" asp-route-id="@Model.Speaker.MeetingId">Back to Meeting</a>
+    </form>
+</div>

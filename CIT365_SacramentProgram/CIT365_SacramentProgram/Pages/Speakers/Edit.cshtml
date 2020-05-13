@@ -1,0 +1,41 @@
+﻿@page
+@using CIT365_SacramentProgram.Models
+@model CIT365_SacramentProgram.Pages.Speakers.EditModel
+
+<h4>Speaker</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Speaker.SpeakerId" />
+            <input type="hidden" name="Speaker.MeetingId" value="@Model.Speaker.MeetingId" />
+            <div class="form-group">
+                <label asp-for="Speaker.FullName" class="control-label"></label>
+                <input asp-for="Speaker.FullName" class="form-control" />
+                <span asp-validation-for="Speaker.FullName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Speaker.Topic" class="control-label"></label>
+                <input asp-for="Speaker.Topic" class="form-control" />
+                <span asp-validation-for="Speaker.Topic" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Speaker.Type" class="control-label"></label>
+                <select asp-for="Speaker.Type" asp-items="@Html.GetEnumSelectList<SpeakerType>()" class="form-control"></select>
+                <span asp-validation-for="Speaker.Type" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="/Meetings/Details" asp-route-id="@Model.Speaker.MeetingId">Back to Meeting</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

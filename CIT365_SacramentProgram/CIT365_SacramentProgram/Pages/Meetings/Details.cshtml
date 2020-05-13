@@ -1,0 +1,149 @@
+﻿@page
+@model CIT365_SacramentProgram.Pages.Meetings.DetailsModel
+
+    <h5 class="hide-print text-left">
+        <a asp-page="./Index">< Back to List</a> |
+        <a asp-page="./Edit" asp-route-id="@Model.Meeting.Id">Edit Meeting</a> |
+        <a asp-page="../Speakers/Create" asp-route-id="@Model.Meeting.Id">Add Speaker</a> | 
+        <span onclick="window.print()" class="print"> <i class="fa fa-print"></i>Print</span> 
+    </h5>
+<hr class="hide-print"/>
+<div class="col-12 print-preview">
+
+<page size="US8x11" layout="landscape" id="page1">
+    <div class="border">
+        <h3>For the Kids</h3>
+        <img class="coloring" src="https://www.churchofjesuschrist.org/bc/content/shared/content/images/gospel-library/magazine/liahonlp.nfo:o:8eb.jpg" />
+
+    </div>
+    <div class="border">
+        <h1>CIT-365 Ward</h1>
+        <h2> @Html.DisplayFor(model => model.Meeting.MeetingDate)</h2>
+        <img class="cover" src="https://upload.wikimedia.org/wikipedia/commons/0/01/Thorvaldsen_Christus.jpg"><hr />
+      <h3>  @Html.DisplayFor(model => model.Meeting.Theme)</h3><hr />
+    </div>
+</page>
+
+<page size="US8x11" layout="landscape" id="page2">
+    <div class="border">
+        <div class="schedule">
+            <h1>Sacrament</h1>
+            <div class="row">
+                <div class="col-6 text-left title"> @Html.DisplayNameFor(model => model.Meeting.Presiding)</div>
+                <div class="col-6 text-right"> @Html.DisplayFor(model => model.Meeting.Presiding)</div>
+
+
+                <div class="col-6 text-left title">
+                    @Html.DisplayNameFor(model => model.Meeting.Conducting)
+                </div>
+                <div class="col-6 text-right">
+                    @Html.DisplayFor(model => model.Meeting.Conducting)
+                </div>
+                <div class="col-6 text-left title">
+                    @Html.DisplayNameFor(model => model.Meeting.Director)
+                </div>
+                <div class="col-6 text-right">
+                    @Html.DisplayFor(model => model.Meeting.Director)
+                </div>
+                <div class="col-6 text-left title">
+                    @Html.DisplayNameFor(model => model.Meeting.Organist)
+                </div>
+                <div class="col-6 text-right">
+                    @Html.DisplayFor(model => model.Meeting.Organist)
+                </div>
+
+                <div class="col-6 text-left title">
+                    @Html.DisplayNameFor(model => model.Meeting.OpeningHymnNumber)
+                </div>
+                <div class="col-6 text-right">
+                    @Html.DisplayFor(model => model.Meeting.OpeningHymnNumber)
+                </div>
+
+                <div class="col-12 text-center hymn">
+                    @Html.DisplayFor(model => model.Meeting.OpeningHymnDescription)
+                </div>
+                <div class="col-6 text-left title">
+                    @Html.DisplayNameFor(model => model.Meeting.Invocation)
+                </div>
+                <div class="col-6 text-right">
+                    @Html.DisplayFor(model => model.Meeting.Invocation)
+                </div>
+
+                <div class="col-6 text-left title">
+                    @Html.DisplayNameFor(model => model.Meeting.SacramentHymnNumber)
+                </div>
+                <div class="col-6 text-right">
+                    @Html.DisplayFor(model => model.Meeting.SacramentHymnNumber)
+                </div>
+
+                <div class="col-12 text-center hymn">
+                    @Html.DisplayFor(model => model.Meeting.SacramentHymnDescription)
+                </div>
+                <div class="col-12 text-center title">
+                    Passing of the Sacrament
+                </div>
+                <div class="col-6 text-left title">
+                    @Html.DisplayNameFor(model => model.Meeting.IntermediateMusic)
+                </div>
+                <div class="col-6 text-right">
+                    @Html.DisplayFor(model => model.Meeting.IntermediateMusic)
+                </div>
+                @foreach (var speaker in Model.Meeting.Speakers)
+                {
+                    <div class="col-6 text-left title">@speaker.Topic  -  @speaker.Type </div>
+                    <div class="col-6 text-right">  @speaker.FullName  <a asp-page="../Speakers/Edit" asp-route-id="@speaker.SpeakerId" class="edit-speaker"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a> | <a asp-page="../Speakers/Delete" asp-route-id="@speaker.SpeakerId" class="delete-speaker"><i class="fa fa-times" aria-hidden="true"></i></a> </div>
+                }
+
+                <div class="col-6 text-left title">
+                    @Html.DisplayNameFor(model => model.Meeting.ClosingHymnNumber)
+                </div>
+                <div class="col-6 text-right">
+                    @Html.DisplayFor(model => model.Meeting.ClosingHymnNumber)
+                </div>
+
+                <div class="col-12 text-center hymn">
+                    @Html.DisplayFor(model => model.Meeting.ClosingHymnDescription)
+                </div>
+                <div class="col-6 text-left title">
+                    @Html.DisplayNameFor(model => model.Meeting.Benediction)
+                </div>
+                <div class="col-6 text-right">
+                    @Html.DisplayFor(model => model.Meeting.Benediction)
+                </div>
+            </div>
+           </div>
+        </div>
+        <div class="border">
+            <div class="schedule">
+                <h1>Announcements</h1>
+                <div class="announce">
+                    Proclamation: The Restoration of the Fulness of the Gospel of Jesus Christ -
+                    POSTED: 5 APRIL 2020 -
+                    Read the newly issued proclamation: The Restoration of the Fulness of the Gospel of Jesus Christ: A Bicentennial Proclamation to the World.
+                </div><div class="announce">
+                    President Russell M. Nelson Announces Plans to Build 8 New Temples—Including One in People’s Republic of China -
+                    POSTED: 5 APRIL 2020 -
+                    Learn where the Church plans to build these temples and what President Nelson asked us to do.
+                </div><div class="announce">
+                    First Presidency Announces Additional Options for Missionaries -
+                    POSTED: 1 APRIL 2020 -
+                    The First Presidency announced additional options for the thousands of missionaries returning home due to COVID-19 concerns, as well as those in online training or with call in hand.
+                </div><div class="announce">
+                    Church Announces Renovation of Columbus Ohio Temple -
+                    POSTED: 27 MARCH 2020 -
+                    The First Presidency announced that the Columbus Ohio Temple will close in August for extensive renovation.
+                </div><div class="announce">
+                    Updated General Handbook Chapters Released for Aaronic Priesthood Quorums, Young Women, and Primary -
+                    POSTED: 26 MARCH 2020 -
+                    The Church has released updated chapters in the new General Handbook for Aaronic Priesthood quorums, Young Women, and Primary.
+                </div><div class="announce">
+                    Updated: Shortened Length of Service for Missionaries Returning to the U.S. and Canada -
+                    POSTED: 26 MARCH 2020 -
+                    Church leaders announced additional adjustments to missionary work on March 26, including a specific shortening of length of service for full-time missionaries returning from international assignments to the U.S. and Canada.
+                </div><div class="announce">
+                    All Latter-day Saint Temples Are Now Closed, First Presidency Announces</div>
+            </div>
+
+</page>
+</div>
+

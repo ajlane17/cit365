@@ -1,0 +1,58 @@
+﻿@page
+@model CIT365_SacramentProgram.Pages.Meetings.IndexModel
+
+<p>
+    <a asp-page="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                <a asp-page="./Index" asp-route-sortOrder="@Model.DateSort">
+                    @Html.DisplayNameFor(model => model.Meeting[0].MeetingDate)
+                </a>
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Meeting[0].Theme)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Meeting[0].Conducting)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Meeting[0].Speakers)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.Meeting) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.MeetingDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Theme)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Conducting)
+            </td>
+            <td>
+                <table>
+                    @foreach (var speaker in item.Speakers)
+                    {
+                        <tr>
+                            <td>@Html.DisplayFor(modelItem => speaker.FullName)</td>
+                            <td>@Html.DisplayFor(modelItem => speaker.Type)</td>
+                            <td>@Html.DisplayFor(modelItem => speaker.Topic)</td>
+                        </tr>
+                    }
+                </table>
+            </td>
+            <td nowrap>
+                <a asp-page="./Details" asp-route-id="@item.Id">Details</a> |
+                <a asp-page="./Delete" asp-route-id="@item.Id">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

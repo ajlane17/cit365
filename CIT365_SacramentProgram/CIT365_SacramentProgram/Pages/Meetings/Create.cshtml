@@ -1,0 +1,101 @@
+﻿@page
+@model CIT365_SacramentProgram.Pages.Meetings.CreateModel
+
+<h4>Meeting</h4>
+<hr />
+
+<form method="post">
+    <div class="row">
+        <div class="col-md-6 col-12">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Meeting.MeetingDate" class="control-label"></label>
+                <input asp-for="Meeting.MeetingDate" class="form-control" />
+                <span asp-validation-for="Meeting.MeetingDate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Meeting.Theme" class="control-label"></label>
+                <input asp-for="Meeting.Theme" class="form-control" />
+                <span asp-validation-for="Meeting.Theme" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Meeting.Presiding" class="control-label"></label>
+                <input asp-for="Meeting.Presiding" class="form-control" />
+                <span asp-validation-for="Meeting.Presiding" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Meeting.Conducting" class="control-label"></label>
+                <input asp-for="Meeting.Conducting" class="form-control" />
+                <span asp-validation-for="Meeting.Conducting" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Meeting.Director" class="control-label"></label>
+                <input asp-for="Meeting.Director" class="form-control" />
+                <span asp-validation-for="Meeting.Director" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Meeting.Organist" class="control-label"></label>
+                <input asp-for="Meeting.Organist" class="form-control" />
+                <span asp-validation-for="Meeting.Organist" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Meeting.Invocation" class="control-label"></label>
+                <input asp-for="Meeting.Invocation" class="form-control" />
+                <span asp-validation-for="Meeting.Invocation" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="col-md-6 col-12">
+            <div class="form-group">
+                <label asp-for="Meeting.OpeningHymnNumber" class="control-label"></label>
+                <input asp-for="Meeting.OpeningHymnNumber" class="form-control" />
+                <span asp-validation-for="Meeting.OpeningHymnNumber" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Meeting.OpeningHymnDescription" class="control-label"></label>
+                <input asp-for="Meeting.OpeningHymnDescription" class="form-control" />
+                <span asp-validation-for="Meeting.OpeningHymnDescription" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Meeting.SacramentHymnNumber" class="control-label"></label>
+                <input asp-for="Meeting.SacramentHymnNumber" class="form-control" />
+                <span asp-validation-for="Meeting.SacramentHymnNumber" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Meeting.SacramentHymnDescription" class="control-label"></label>
+                <input asp-for="Meeting.SacramentHymnDescription" class="form-control" />
+                <span asp-validation-for="Meeting.SacramentHymnDescription" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Meeting.IntermediateMusic" class="control-label"></label>
+                <input asp-for="Meeting.IntermediateMusic" class="form-control" />
+                <span asp-validation-for="Meeting.IntermediateMusic" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Meeting.ClosingHymnNumber" class="control-label"></label>
+                <input asp-for="Meeting.ClosingHymnNumber" class="form-control" />
+                <span asp-validation-for="Meeting.ClosingHymnNumber" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Meeting.ClosingHymnDescription" class="control-label"></label>
+                <input asp-for="Meeting.ClosingHymnDescription" class="form-control" />
+                <span asp-validation-for="Meeting.ClosingHymnDescription" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Meeting.Benediction" class="control-label"></label>
+                <input asp-for="Meeting.Benediction" class="form-control" />
+                <span asp-validation-for="Meeting.Benediction" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+</form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

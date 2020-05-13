@@ -1,0 +1,241 @@
+﻿/* Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification
+for details on configuring this project to bundle and minify static web assets. */
+:root {
+    --brand:  #002e57;
+}
+a.navbar-brand {
+  white-space: normal;
+  text-align: center;
+  word-break: break-all;
+}
+
+/* Provide sufficient contrast against white background */
+a {
+  color: #0366d6;
+}
+
+.btn-primary {
+  color: #fff;
+  background-color: #1b6ec2;
+  border-color: #1861ac;
+}
+
+.nav-pills .nav-link.active, .nav-pills .show > .nav-link {
+  color: #fff;
+  background-color: #1b6ec2;
+  border-color: #1861ac;
+}
+
+/* Sticky footer styles
+-------------------------------------------------- */
+html {
+  font-size: 14px;
+}
+@media (min-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+.border-top {
+  border-top: 1px solid #e5e5e5;
+}
+.border-bottom {
+  border-bottom: 1px solid #e5e5e5;
+}
+
+.box-shadow {
+  box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05);
+}
+
+button.accept-policy {
+  font-size: 1rem;
+  line-height: inherit;
+}
+
+/* Sticky footer styles
+-------------------------------------------------- */
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+  /* Margin bottom by footer height */
+  margin-bottom: 60px;
+}
+.footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  white-space: nowrap;
+  line-height: 60px; /* Vertically center the text there */
+}
+
+
+body {
+    background: rgb(204,204,204);
+}
+
+page {
+    background: white;
+    display: block;
+    margin: 0 auto;
+    margin-bottom: 0.5cm;
+    box-shadow: 0 0 0.5cm rgba(0,0,0,0.5);
+}
+
+
+
+    page[size="US8x11"][layout="landscape"] {
+        width: 11in;
+        height: 8.5in;
+      
+    }
+
+@media print {
+    body, #page1 {
+        margin: 0;
+        box-shadow: 0;
+        margin-bottom: 0;
+        height: 100%;
+      
+    }
+
+    button, footer, header {
+        display: none;
+    }
+
+    body, #page2 {
+        margin: 0;
+        box-shadow: 0;
+        margin-bottom: 0;
+        height: 100%;
+    }
+  .delete-speaker, .edit-speaker, .hide-print{
+        display:none;
+    }
+}
+
+.border {
+    width: 45%;
+    height: 94% !important;
+    margin: 2%;
+    float: left;
+    border: solid black 2px;
+}
+
+h1,h2,h3,h4 {
+    text-align: center;
+    color: var(--brand);
+}
+
+
+
+p {
+    padding: 5%
+}
+
+img.cover {
+    width: 80%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto
+}
+
+.print-btn {
+    color: white;
+    padding: 10px;
+    position: absolute;
+    right: 20px;
+    background: var(--brand);
+    font-size: 1.2em;
+}
+
+.schedule {
+    margin: 20px;
+    padd: 40px;
+    font-size: .9em;
+}
+
+.title {
+    font-weight: bolder;
+}
+
+
+.col-6.text-left.title {
+    margin: 5px 0px;
+    /* border-bottom-style: dashed; */
+}
+
+.col-6.text-right {
+    margin: 5px 0px;
+}
+
+.col-12.text-center.hymn {
+    margin: auto;
+    width: 80% !important;
+    border-top: lightgrey solid .5px;
+}
+
+.col-12.text-center.title {
+    margin: 20px 0;
+    border-top: solid;
+    color: var(--brand);
+    border-bottom: solid;
+    border-color: #efefef;
+}
+
+.schedule h1 {
+    padding: 0 0 30px 0;
+}
+
+img.coloring {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+form {
+    width: 100%;
+}
+
+
+.bg-image {
+    background-image: url(https://www.peakgrantmaking.org/wp-content/uploads/2019/01/benjamin-voros-575800-unsplash-1024x684.jpg);
+    top: -20px;
+    left: -120px;
+    height: 100%;
+    width: 120%;
+    overflow: hidden;
+    z-index: -20;
+    position: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+/* Position text in the middle of the page/image */
+    .bg-text{
+    background-color: rgba(0,0,0, 0.4);
+    color: white;
+    font-weight: bold;
+    border: 3px solid #f1f1f1;
+    position: relative;
+    top: 200px;
+    /* left: 50%; */
+    margin: auto;
+    /* transform: translate(-50%, -50%); */
+    width: 50%;
+    padding: 20px;
+    text-align: center;
+}
+
+.bg-text h2 {
+    color: white;
+
+}
+
+    .bg-text a {
+        color: white;
+    }
